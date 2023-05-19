@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Injection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 5px;
+        }
+
+        h1 {
+            font-size: 24px; /* Mengubah ukuran font menjadi 24px */
+            color: #333;
+        }
+
+
+        form {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="file"] {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        @media (min-width: 768px) {
+            form {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        /* CSS style yang telah Anda sediakan */
+
+ /* Menambahkan placeholder pada input fields */
+ #disbursement_id::placeholder {
+            color: #999;
+        }
+
+        #selisih_tanggal::placeholder {
+            color: #999;
+        }
+
+        #user_input::placeholder {
+            color: #999;
+        }
+
+        #file::placeholder {
+            color: #999;
+        }
+
+        /* Mengatur tampilan tombol "Process" */
+        input[type="submit"].submit-button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"].submit-button:hover {
+            background-color: #45a049;
+        }
+
+        @media (max-width: 480px) {
+            /* Gaya tambahan untuk layar yang lebih kecil */
+            form {
+                max-width: 300px;
+            }
+        }
+        
+    
+    .delete-button {
+    background-color: #ff5555;
+    color: #fff;
+    padding: 3px 4px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    }
+
+    .delete-button:hover {
+    background-color: #ff3333;
+    }
+
+    .note {
+    font-size: 10px;
+    color: #999;
+    margin-top: 1px;
+    }
+    
+
+    </style>
+</head>
+<body>
+    <h1>Data Injection</h1>
+    <form action="/process" method="POST" enctype="multipart/form-data">
+        <label for="disbursement_id">Disbursement ID:</label>
+        <span class="note">masukkan disbursement_id</span>
+        <input type="text" id="disbursement_id" name="disbursement_id" required>
+
+        <label for="selisih_tanggal">Selisih Tanggal:</label>
+        <span class="note">selisih tanggal di database dengan jadwal angsuran + atau - jika tidak ada bisa tulis 0</span>
+
+        <input type="text" id="selisih_tanggal" name="selisih_tanggal" required>
+        
+        <label for="user_input">Display Name:</label>
+        <span class="note">menghapus angka 0 di depan : '0'[menghapus 0] '00'[menghapus 00] '000'[menghapus 0 dan 00] jika sudah samma kosongkan </span>
+        <input type="text" id="user_input" name="user_input">
+
+        <label for="file">File:</label>
+        <span class="note">file wajib excel dan format di sheet pertama sudah sesuai  </span>
+        <input type="file" id="file" name="file" required>
+
+        <input type="submit" value="Process">
+        
+    </form>
+
+</body>
+</html>
