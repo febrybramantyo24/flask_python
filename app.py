@@ -101,7 +101,7 @@ def process():
             wb.save(os.path.join(folder_path, latest_file))
 
             #------Connection To Database---
-            engine = db.create_engine('mysql+pymysql://mekar:d1saa%40tr3v0_QuK3but@rm-d9jbw9r6mim1jv8n2wo.mysql.ap-southeast-5.rds.aliyuncs.com/stg_funderportal') # Set up database connection
+            engine = db.create_engine('') # Set up database connection
             connection = engine.connect()
 
             query = f"""
